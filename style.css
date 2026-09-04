@@ -95,7 +95,9 @@ body {
         opacity: 0.5;
         background-color: black;
         transform: scale(1.7);
-        transition: all 0.4s;@media (max-width: 600px) {
+        transition: all 0.4s;
+    }
+@media (max-width: 600px) {
 
     body {
         background-attachment: scroll;
