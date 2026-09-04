@@ -1,0 +1,99 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-image: url("fon.jpg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+.btn {
+    color: dimgray;
+    font-size: 49px;
+    position: absolute;
+    left: 13vw;
+    top: 280px;
+}
+
+    .btn:hover {
+        color: red;
+        opacity: 0.5;
+        background-color: black;
+        transform: scale(1.1);
+        transition: all 0.4s;
+    }
+
+.btn1 {
+    border-radius: 20px;
+    color: dimgray;
+    background-color: black;
+    transform: scale(1.5);
+    background-color: buttonshadow;
+    font-size: 24px;
+    position: absolute;
+    left: 17vw;
+    top: 375px;
+}
+
+    .btn1:hover {
+        color: red;
+        opacity: 0.5;
+        background-color: black;
+        transform: scale(1.7);
+        transition: all 0.4s;
+    }
+.btn2 {
+    color: dimgray;
+    font-size: 49px;
+    position: absolute;
+    left: 33vw;
+    top: 280px;
+}
+
+    .btn2:hover {
+        color: red;
+        opacity: 0.5;
+        background-color: black;
+        transform: scale(1.1);
+        transition: all 0.4s;
+    }
+.btn3 {
+    color: dimgray;
+    font-size: 49px;
+    position: absolute;
+    left: 79vw;
+    top: 280px;
+}
+
+    .btn3:hover {
+        color: red;
+        opacity: 0.5;
+        background-color: black;
+        transform: scale(1.1);
+        transition: all 0.4s;
+    }
+
+.btn4 {
+    border-radius: 20px;
+    color: dimgray;
+    background-color: black;
+    transform: scale(1.5);
+    background-color: buttonshadow;
+    font-size: 21px;
+    position: absolute;
+    left: 70vw;
+    top: 375px;
+}
+
+    .btn4:hover {
+        color: red;
+        opacity: 0.5;
+        background-color: black;
+        transform: scale(1.7);
+        transition: all 0.4s;
+    }
