@@ -1,171 +1,1222 @@
+/* ========================================
+   ОСНОВА
+======================================== */
 
-       * ОБЩИЕ СТИЛИ (для всех устройств) */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-size: cover; /* Растягивает картинку, сохраняя пропорции */
-    background-position: center center; /* Центрирует изображение */
-    background-repeat: no-repeat; /* Запрещает повторение */
-    background-attachment: scroll; /* ВАЖНО для мобильных: фон скроллится вместе с контентом */
     margin: 0;
     min-height: 100vh;
-}
-@media (min-width: 769px) { 
-    body {
-        background-image: url('fon.jpg'); 
-        background-attachment: fixed;
-    }
-}
-@media (max-width: 768px) {
-    body {
-        background-image: url('tel.jpg'); /* Имя вертикальной картинки */
-    }
-}
-.btn {
-    color: dimgray;
-    font-size: 49px;
-    position: absolute;
-    left: 12vw;
-    top: 280px;
+    overflow-x: hidden;
+    background: #050711;
+    color: white;
 }
 
-    .btn:hover {
-        color: red;
-        opacity: 0.5;
-        background-color: black;
-        transform: scale(1.1);
-        transition: all 0.4s;
-    }   
-    .btn1 {
-    border-radius: 20px;
-    color: dimgray;
-    background-color: black;
-    transform: scale(1.5);
-    background-color: buttonshadow;
-    font-size: 24px;
-    position: absolute;
-    left: 17vw;
-    top: 375px;
-    }
 
-    .btn1:hover {
-    color: red;
-    opacity: 0.5;
-    background-color: black;
-    transform: scale(1.7);
-    transition: all 0.4s;
-    }
-    .btn2 {
-    color: dimgray;
-    font-size: 49px;
-    position: absolute;
-    left: 33vw;
-    top: 280px;
-    }
+/* ========================================
+   ФОН
+======================================== */
 
-    .btn2:hover {
-    color: red;
-    opacity: 0.5;
-    background-color: black;
-    transform: scale(1.1);
-    transition: all 0.4s;
-    }
-    .btn3 {
-    color: dimgray;
-    font-size: 49px;
-    position: absolute;
-    left: 79vw;
-    top: 280px;
-    }
-
-    .btn3:hover {
-    color: red;
-    opacity: 0.5;
-    background-color: black;
-    transform: scale(1.1);
-    transition: all 0.4s;
-    }
-
-    .btn4 {
-    border-radius: 20px;
-    color: dimgray;
-    background-color: black;
-    transform: scale(1.5);
-    background-color: buttonshadow;
-    font-size: 21px;
-    position: absolute;
-    left: 70vw;
-    top: 375px;
-    }
-
-    .btn4:hover {
-    color: red;
-    opacity: 0.5;
-    background-color: black;
-    transform: scale(1.7);
-    transition: all 0.4s;
-    }
-    /* ===== ТЕЛЕФОН ===== */
-
-    @media (max-width: 600px) {
-
-    body {
-    background-attachment: scroll;
+.background-image {
+    position: fixed;
+    inset: 0;
+    background-image: url("комп фон.jpg");
     background-size: cover;
     background-position: center;
-    overflow-x: hidden;
+    background-repeat: no-repeat;
+    z-index: -3;
+}
+
+
+    /* Затемнение */
+
+    .background-image::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
     }
 
-    /* Все кнопки */
-    .btn,
-    .btn1,
-    .btn2,
-    .btn3,
-    .btn4 {
+
+/* ========================================
+   ЭФФЕКТЫ
+======================================== */
+
+.effects {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -2;
+    overflow: hidden;
+}
+
+
+/* ========================================
+   ГЛАВНЫЙ КОНТЕНТ
+======================================== */
+
+.content {
     position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
+    z-index: 1;
+    min-height: 100vh;
+    padding-top: 80px;
+    text-align: center;
+}
+
+
+/* ========================================
+   ГЛАВНЫЙ ЗАГОЛОВОК
+======================================== */
+
+h1 {
+    margin: 0;
+    padding: 0 20px;
+    font-family: Georgia, serif;
+    font-size: 64px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-align: center;
+    background: linear-gradient( 90deg, #8a5a00, #ffd700, #fff3a0, #ffd700, #8a5a00 );
+    background-size: 300% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    animation: gold 3s linear infinite;
+}
+
+
+/* ========================================
+   АНИМАЦИЯ ЗАГОЛОВКА
+======================================== */
+
+@keyframes gold {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+
+/* ========================================
+   ПРИВЕТСТВЕННЫЙ ТЕКСТ
+======================================== */
+
+.intro {
+    max-width: 800px;
+    margin: 35px auto;
+    padding: 0 20px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    background: linear-gradient( 90deg, #8a5a00, #ffd700, #fff3a0, #ffd700, #8a5a00 );
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    opacity: 0;
+    animation: goldText 3s linear infinite, appear 2s ease-out forwards;
+}
+
+
+/* ========================================
+   ЗОЛОТОЙ ТЕКСТ
+======================================== */
+
+@keyframes goldText {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+
+/* ========================================
+   ПОЯВЛЕНИЕ
+======================================== */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   КНОПКА №1
+======================================== */
+
+.btn1 {
     display: block;
-    width: 90%;
-    max-width: 400px;
-    margin: 20px auto;
-    box-sizing: border-box;
+    margin: 45px auto 25px;
+    padding: 18px 35px;
+    font-family: Georgia, serif;
     font-size: 20px;
-    padding: 15px;
-    z-index: 10;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff3a0;
+    background: linear-gradient( 135deg, #3b2500, #8a5a00, #d4af37, #8a5a00, #3b2500 );
+    background-size: 300% 300%;
+    border: 2px solid #ffd700;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5), inset 0 0 10px rgba(255, 215, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, font-size 0.3s ease;
+    animation: buttonGold 5s ease infinite;
+}
+
+
+    /* Наведение */
+
+    .btn1:hover {
+        transform: scale(1.08);
+        font-size: 22px;
+        color: white;
+        box-shadow: 0 0 15px #ffd700, 0 0 35px rgba(255, 215, 0, 0.8), inset 0 0 15px rgba(255, 215, 0, 0.4);
     }
 
-    /* Привет */
-    .btn {
-    font-size: 32px;
-    margin-top: 40px;
+
+    /* Нажатие */
+
+    .btn1:active {
+        transform: scale(0.95);
+        box-shadow: 0 0 8px #ffd700;
     }
 
-    /* Кнопка Telegram */
-    .btn1 {
-    font-size: 17px;
+
+/* ========================================
+   ПЕРЕЛИВАНИЕ КНОПКИ
+======================================== */
+
+@keyframes buttonGold {
+
+    0% {
+        background-position: 0% 50%;
     }
 
-    /* Связь с автором */
-    .btn2 {
-    font-size: 25px;
+    50% {
+        background-position: 100% 50%;
     }
 
-    /* Автор */
-    .btn3 {
-    font-size: 28px;
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* ========================================
+   КНОПКА №2
+======================================== */
+
+.btn2 {
+    display: block;
+    margin: 20px auto;
+    padding: 16px 32px;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #ffd700;
+    background: rgba(20, 15, 5, 0.85);
+    border: 2px solid #c99a2e;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.3), inset 0 0 8px rgba(255, 215, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+    /* Наведение */
+
+    .btn2:hover {
+        color: #1b1200;
+        background: linear-gradient( 90deg, #b8860b, #ffd700, #fff0a0, #ffd700, #b8860b );
+        background-size: 250% 100%;
+        transform: scale(1.08);
+        border-color: #fff3a0;
+        box-shadow: 0 0 15px #ffd700, 0 0 30px rgba(255, 215, 0, 0.6);
+        animation: contactGlow 2s linear infinite;
     }
 
-    /* Подарок */
-    .btn4 {
+
+    /* Нажатие */
+
+    .btn2:active {
+        transform: scale(0.95);
+    }
+
+
+/* ========================================
+   ПЕРЕЛИВАНИЕ КНОПКИ №2
+======================================== */
+
+@keyframes contactGlow {
+
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 250% 50%;
+    }
+}
+
+
+/* ========================================
+   ЛУНА
+======================================== */
+
+.moon {
+    position: fixed;
+    width: 130px;
+    height: 130px;
+    top: 70px;
+    right: 10%;
+    border-radius: 50%;
+    background: #fff3b0;
+    box-shadow: 0 0 20px #fff3b0, 0 0 50px rgba(255, 220, 120, 0.5), 0 0 100px rgba(255, 200, 80, 0.2);
+    animation: moonGlow 4s ease-in-out infinite;
+}
+
+
+/* ========================================
+   СВЕЧЕНИЕ ЛУНЫ
+======================================== */
+
+@keyframes moonGlow {
+
+    0%, 100% {
+        box-shadow: 0 0 20px #fff3b0, 0 0 50px rgba(255, 220, 120, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 30px #fff3b0, 0 0 70px rgba(255, 220, 120, 0.8);
+    }
+}
+
+
+/* ========================================
+   ЗВЁЗДЫ
+======================================== */
+
+.stars span {
+    position: fixed;
+    color: #fff3a0;
     font-size: 18px;
+    text-shadow: 0 0 10px #ffd700;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+
+    /* Позиции */
+
+    .stars span:nth-child(1) {
+        top: 10%;
+        left: 15%;
     }
 
-    /* Убираем увеличение кнопок при наведении на телефоне */
-    .btn:hover,
-    .btn1:hover,
-    .btn2:hover,
-    .btn3:hover,
-    .btn4:hover {
-    transform: none;
+    .stars span:nth-child(2) {
+        top: 20%;
+        left: 35%;
     }
+
+    .stars span:nth-child(3) {
+        top: 8%;
+        left: 60%;
     }
+
+    .stars span:nth-child(4) {
+        top: 30%;
+        left: 80%;
+    }
+
+    .stars span:nth-child(5) {
+        top: 45%;
+        left: 10%;
+    }
+
+    .stars span:nth-child(6) {
+        top: 35%;
+        left: 50%;
+    }
+
+
+/* ========================================
+   МЕРЦАНИЕ
+======================================== */
+
+@keyframes twinkle {
+
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+
+/* ========================================
+   ТУМАН
+======================================== */
+
+.fog {
+    position: fixed;
+    width: 150%;
+    height: 200px;
+    left: -25%;
+    bottom: 10%;
+    background: rgba(220, 220, 220, 0.06);
+    filter: blur(30px);
+    animation: fogMove 15s ease-in-out infinite alternate;
+}
+
+
+/* Движение тумана */
+
+@keyframes fogMove {
+
+    from {
+        transform: translateX(-10%);
+    }
+
+    to {
+        transform: translateX(10%);
+    }
+}
+
+
+/* ========================================
+   ЗОЛОТЫЕ ЧАСТИЦЫ
+======================================== */
+
+.particles span {
+    position: fixed;
+    color: #ffd700;
+    font-size: 15px;
+    text-shadow: 0 0 10px #ffd700;
+    animation: float 8s linear infinite;
+}
+
+
+    /* Позиции */
+
+    .particles span:nth-child(1) {
+        left: 15%;
+        bottom: -20px;
+    }
+
+    .particles span:nth-child(2) {
+        left: 40%;
+        bottom: -50px;
+    }
+
+    .particles span:nth-child(3) {
+        left: 65%;
+        bottom: -30px;
+    }
+
+    .particles span:nth-child(4) {
+        left: 85%;
+        bottom: -60px;
+    }
+
+
+/* Полёт */
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* ========================================
+   ЭКРАН ИСТОРИЙ
+======================================== */
+
+.stories {
+    display: none;
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 92%);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 60px 0 80px;
+}
+
+
+/* ========================================
+   ЗАГОЛОВОК СПИСКА
+======================================== */
+
+.stories-header {
+    max-width: 750px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+
+.stories-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #d4af37;
+}
+
+
+.stories-line {
+    width: 90px;
+    height: 1px;
+    margin: 15px auto;
+    background: linear-gradient( 90deg, transparent, #ffd700, transparent );
+}
+
+
+.stories-header h2 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 52px;
+    letter-spacing: 2px;
+    background: linear-gradient( 90deg, #8a5a00, #ffd700, #fff5b0, #ffd700, #8a5a00 );
+    background-size: 250% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: goldText 4s linear infinite;
+}
+
+
+.stories-header p {
+    margin-top: 18px;
+    color: rgba(255, 243, 196, 0.75);
+    font-family: Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   СПИСОК
+======================================== */
+
+.story-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+
+/* ========================================
+   КАРТОЧКА
+======================================== */
+
+.story-card {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    min-height: 210px;
+    padding: 30px 35px;
+    gap: 30px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 20px;
+    background: linear-gradient( 110deg, rgba(15, 12, 8, 0.94), rgba(35, 25, 10, 0.78) );
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+    /* Золотой блик */
+
+    .story-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -120%;
+        width: 80%;
+        height: 100%;
+        background: linear-gradient( 90deg, transparent, rgba(255, 215, 0, 0.08), transparent );
+        transform: skewX(-20deg);
+        transition: left 0.7s ease;
+    }
+
+
+    .story-card:hover::before {
+        left: 140%;
+    }
+
+
+    /* Наведение */
+
+    .story-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(255, 215, 0, 0.85);
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 215, 0, 0.12);
+    }
+
+
+/* ========================================
+   НОМЕР
+======================================== */
+
+.story-number {
+    flex-shrink: 0;
+    width: 100px;
+    font-family: Georgia, serif;
+    font-size: 65px;
+    font-weight: bold;
+    line-height: 1;
+    color: rgba(255, 215, 0, 0.12);
+    transition: color 0.4s ease;
+}
+
+
+.story-card:hover .story-number {
+    color: rgba(255, 215, 0, 0.3);
+}
+
+
+/* ========================================
+   ИНФОРМАЦИЯ
+======================================== */
+
+.story-info {
+    flex: 1;
+}
+
+
+/* Верхняя строка */
+
+.story-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+
+/* Тип истории */
+
+.story-type {
+    color: #d4af37;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+
+/* Количество концовок */
+
+.story-endings {
+    padding: 5px 9px;
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    border-radius: 20px;
+    color: rgba(255, 243, 196, 0.65);
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+/* ========================================
+   НАЗВАНИЕ ИСТОРИИ
+======================================== */
+
+.story-info h3 {
+    margin: 5px 0 12px;
+    color: #fff3c4;
+    font-family: Georgia, serif;
+    font-size: 30px;
+}
+
+
+/* ========================================
+   ОПИСАНИЕ
+======================================== */
+
+.story-info p {
+    max-width: 700px;
+    margin: 0 0 25px;
+    color: rgba(255, 243, 196, 0.7);
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   КНОПКА ИСТОРИИ
+======================================== */
+
+.story-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border: 1px solid #c99a2e;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.25);
+    color: #ffd700;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+    /* Наведение */
+
+    .story-btn:hover:not(:disabled) {
+        background: #ffd700;
+        color: #241900;
+        border-color: #ffd700;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        transform: translateX(5px);
+    }
+
+
+    /* Заблокированная */
+
+    .story-btn:disabled {
+        cursor: not-allowed;
+        opacity: 0.45;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+
+/* ========================================
+   КРЕСТИК
+======================================== */
+
+.close-btn {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(255, 215, 0, 0.6);
+    border-radius: 50%;
+    background: rgba(10, 8, 5, 0.9);
+    color: #ffd700;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+
+    .close-btn:hover {
+        background: #ffd700;
+        color: #1b1200;
+        transform: rotate(90deg) scale(1.1);
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+    }
+
+
+/* ========================================
+   ТЕЛЕФОН
+======================================== */
+
+@media (max-width: 600px) {
+
+    .content {
+        padding-top: 60px;
+    }
+
+
+    h1 {
+        font-size: 40px;
+        letter-spacing: 1px;
+        padding: 0 15px;
+    }
+
+
+    .intro {
+        font-size: 19px;
+        padding: 0 20px;
+        margin: 25px auto;
+    }
+
+
+    .btn1 {
+        width: 90%;
+        font-size: 17px;
+        padding: 15px 20px;
+        margin: 30px auto 20px;
+    }
+
+
+        .btn1:hover {
+            transform: scale(1.04);
+            font-size: 18px;
+        }
+
+
+    .btn2 {
+        width: 90%;
+        font-size: 17px;
+        padding: 15px 20px;
+    }
+
+
+        .btn2:hover {
+            transform: scale(1.04);
+        }
+
+
+    .moon {
+        width: 80px;
+        height: 80px;
+        top: 35px;
+        right: 8%;
+    }
+
+
+    .stars span {
+        font-size: 14px;
+    }
+
+
+    /* СПИСОК ИСТОРИЙ */
+
+    .stories {
+        width: 94%;
+        padding: 70px 0 50px;
+    }
+
+
+    .stories-header h2 {
+        font-size: 34px;
+        padding: 0 45px 0 10px;
+    }
+
+
+    .stories-header p {
+        padding: 0 15px;
+        font-size: 16px;
+    }
+
+
+    .close-btn {
+        top: 15px;
+        right: 15px;
+        width: 43px;
+        height: 43px;
+        font-size: 25px;
+    }
+
+
+    .story-card {
+        flex-direction: column;
+        gap: 10px;
+        padding: 22px;
+        min-height: auto;
+    }
+
+
+    .story-number {
+        width: auto;
+        font-size: 43px;
+    }
+
+
+    .story-info h3 {
+        font-size: 23px;
+    }
+
+
+    .story-info p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+
+    .story-btn {
+        width: 100%;
+        font-size: 12px;
+    }
+}
+
+
+/* ========================================
+   ОЧЕНЬ МАЛЕНЬКИЙ ТЕЛЕФОН
+======================================== */
+
+@media (max-width: 400px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+
+    .intro {
+        font-size: 17px;
+    }
+
+
+    .stories-header h2 {
+        font-size: 30px;
+    }
+
+
+    .story-info h3 {
+        font-size: 21px;
+    }
+}
+/* ========================================
+   СТРАНИЦА ИНТЕРАКТИВНОЙ ИСТОРИИ
+======================================== */
+
+.story-page {
+    position: relative;
+    z-index: 1;
+    width: min(1000px, 92%);
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 25px 0 70px;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   ВЕРХНЯЯ ПАНЕЛЬ
+======================================== */
+
+.story-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+
+.back-story {
+    color: #ffd700;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+
+    .back-story:hover {
+        color: #fff3a0;
+        transform: translateX(-5px);
+    }
+
+
+.story-counter {
+    color: rgba(255, 215, 0, 0.7);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+/* ========================================
+   НАЗВАНИЕ ИСТОРИИ
+======================================== */
+
+.story-title {
+    margin: 0 0 35px;
+    font-size: 48px;
+}
+
+
+/* ========================================
+   ОКНО
+======================================== */
+
+.story-box {
+    width: 100%;
+    padding: 45px;
+    background: linear-gradient( 135deg, rgba(10, 8, 5, 0.94), rgba(30, 20, 7, 0.88) );
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 0 30px rgba(255, 215, 0, 0.08);
+    backdrop-filter: blur(10px);
+    animation: storyBoxAppear 0.6s ease;
+}
+
+
+/* ========================================
+   ИКОНКА
+======================================== */
+
+.story-icon {
+    text-align: center;
+    font-size: 55px;
+    margin-bottom: 25px;
+    filter: drop-shadow( 0 0 12px rgba(255, 215, 0, 0.35) );
+}
+
+
+/* ========================================
+   ТЕКСТ
+======================================== */
+
+.story-text {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #fff3c4;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+
+    .story-text p {
+        color: #fff3c4 !important;
+        font-family: Georgia, serif !important;
+        font-size: 20px !important;
+        line-height: 1.8;
+        text-align: left;
+    }
+
+
+    /* ========================================
+   ЦИТАТА
+======================================== */
+
+    .story-text .quote {
+        margin: 25px 0;
+        padding: 15px 20px;
+        border-left: 3px solid #ffd700;
+        color: #ffd700 !important;
+        font-style: italic;
+        background: rgba(255, 215, 0, 0.04);
+    }
+
+
+/* ========================================
+   ВЫБОРЫ
+======================================== */
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+
+/* ========================================
+   КНОПКИ ВЫБОРА
+======================================== */
+
+.choice-btn {
+    width: 100%;
+    padding: 17px 22px;
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    border-radius: 10px;
+    background: linear-gradient( 90deg, rgba(60, 38, 0, 0.8), rgba(130, 85, 0, 0.65) );
+    color: #ffd700;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.3s ease;
+}
+
+
+    .choice-btn:hover {
+        transform: translateX(8px);
+        color: #241900;
+        background: #ffd700;
+        border-color: #fff3a0;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.35);
+    }
+
+
+    /* Вторичная кнопка */
+
+    .choice-btn.secondary {
+        background: transparent;
+        color: rgba(255, 215, 0, 0.7);
+    }
+
+
+        .choice-btn.secondary:hover {
+            color: #241900;
+            background: #ffd700;
+        }
+
+
+/* ========================================
+   ЗАГОЛОВОК КОНЦОВКИ
+======================================== */
+
+.ending-title {
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: linear-gradient( 90deg, #8a5a00, #ffd700, #fff3a0, #ffd700, #8a5a00 );
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: goldText 3s linear infinite;
+}
+
+
+/* ========================================
+   НАЧАТЬ ЗАНОВО
+======================================== */
+
+.restart-btn {
+    display: block;
+    margin: 25px auto 0;
+    padding: 12px 25px;
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255, 215, 0, 0.6);
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+    .restart-btn:hover {
+        color: #ffd700;
+        border-color: #ffd700;
+    }
+
+
+/* ========================================
+   АНИМАЦИЯ ОКНА
+======================================== */
+
+@keyframes storyBoxAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   ТЕЛЕФОН
+======================================== */
+
+@media (max-width: 600px) {
+
+    .story-page {
+        width: 94%;
+        padding-top: 18px;
+    }
+
+
+    .story-topbar {
+        margin-bottom: 30px;
+    }
+
+
+    .back-story {
+        font-size: 12px;
+    }
+
+
+    .story-counter {
+        font-size: 10px;
+    }
+
+
+    .story-title {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+
+    .story-box {
+        padding: 25px 18px;
+        border-radius: 16px;
+    }
+
+
+    .story-icon {
+        font-size: 45px;
+    }
+
+
+    .story-text,
+    .story-text p {
+        font-size: 17px !important;
+        line-height: 1.7;
+    }
+
+
+    .choice-btn {
+        padding: 15px;
+        font-size: 15px;
+    }
+
+
+    .ending-title {
+        font-size: 22px;
+    }
+}
