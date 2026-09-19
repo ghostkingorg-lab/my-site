@@ -1,21 +1,264 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <title>GhostKing (Страшные истории)</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icon.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
 
+    <title>GhostKing Story</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <button id="btn" class="btn"> Привет!!!</button>
-    <button id="btn4" class="btn4" onclick="window.location.href='https://t.me/Gk_Prime_org?text=Хочу%20отправить%20подарок%20🎁'">
-        🎁Отправить подарок🎁
-    </button>
-    <button id="btn2" class="btn2">Связь с автором!====></button>
-    <button id="btn3" class="btn3" onclick="window.location.href='https://t.me/Gk_Prime_org'">Автор</button>
-    <button id="btn1" class="btn1" onclick="window.location.href='https://t.me/ghostKing_h_story'">[Нажми, чтобы перейти в наш телеграмм]</button>
+
+    <!-- =====================================
+         ФОНОВАЯ КАРТИНКА
+    ====================================== -->
+
+    <div class="background-image"></div>
+
+
+    <!-- =====================================
+         АНИМАЦИИ ФОНА
+    ====================================== -->
+
+    <div class="effects">
+
+        <div class="moon"></div>
+
+        <div class="stars">
+            <span>✦</span>
+            <span>✧</span>
+            <span>★</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>★</span>
+        </div>
+
+        <div class="fog"></div>
+
+        <div class="particles">
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+            <span>✧</span>
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         ГЛАВНАЯ СТРАНИЦА
+    ====================================== -->
+
+    <div class="content" id="home">
+
+        <h1>GhostKing Story</h1>
+
+        <p class="intro">
+            Привет! Выбери историю и пройди ее на 5 разных концовок!
+        </p>
+
+        <button class="btn1" id="btn1">
+            Список доступных историй
+        </button>
+
+        <button class="btn2" id="btn2">
+            Связаться с автором
+        </button>
+
+    </div>
+
+
+    <!-- =====================================
+         СПИСОК ИСТОРИЙ
+    ====================================== -->
+
+    <div class="stories" id="stories">
+
+        <!-- КРЕСТИК -->
+        <button class="close-btn" id="closeBtn">
+            ×
+        </button>
+
+
+        <!-- ЗАГОЛОВОК -->
+
+        <div class="stories-header">
+
+            <div class="stories-label">
+                GHOSTKING STORY
+            </div>
+
+            <div class="stories-line"></div>
+
+            <h2>
+                Доступные истории
+            </h2>
+
+            <p>
+                Выбери свою историю и узнай,
+                чем закончится твой путь.
+            </p>
+
+            <div class="stories-line"></div>
+
+        </div>
+
+
+        <!-- =====================================
+             ИСТОРИИ
+        ====================================== -->
+
+        <div class="story-list">
+
+
+            <!-- ИСТОРИЯ №1 -->
+
+            <div class="story-card">
+
+                <div class="story-number">
+                    01
+                </div>
+
+                <div class="story-info">
+
+                    <div class="story-top">
+
+                        <span class="story-type">
+                            ИНТЕРАКТИВНАЯ ИСТОРИЯ
+                        </span>
+
+                        <span class="story-endings">
+                            5 КОНЦОВОК
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Тайна забытого замка
+                    </h3>
+
+
+                    <p>
+                        Старый замок скрывает тайну,
+                        которую никто не смог раскрыть
+                        за сотни лет.
+                    </p>
+
+
+                    <button class="story-btn"
+                            onclick="window.location.href='story1.html'">
+                        НАЧАТЬ ИСТОРИЮ →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ИСТОРИЯ №2 -->
+
+            <div class="story-card">
+
+                <div class="story-number">
+                    02
+                </div>
+
+                <div class="story-info">
+
+                    <div class="story-top">
+
+                        <span class="story-type">
+                            ПРИКЛЮЧЕНИЕ
+                        </span>
+
+                        <span class="story-endings">
+                            5 КОНЦОВОК
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Лес без выхода
+                    </h3>
+
+
+                    <p>
+                        Ты оказался в загадочном лесу.
+                        Каждый выбор может изменить
+                        твою судьбу.
+                    </p>
+
+
+                    <button class="story-btn"
+                            disabled>
+                        В РАЗРАБОТКЕ...
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ИСТОРИЯ №3 -->
+
+            <div class="story-card">
+
+                <div class="story-number">
+                    03
+                </div>
+
+                <div class="story-info">
+
+                    <div class="story-top">
+
+                        <span class="story-type">
+                            ФЭНТЕЗИ
+                        </span>
+
+                        <span class="story-endings">
+                            5 КОНЦОВОК
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Последний рыцарь
+                    </h3>
+
+
+                    <p>
+                        Королевство находится на грани
+                        гибели. Только твои решения
+                        определят конец истории.
+                    </p>
+
+
+                    <button class="story-btn"
+                            disabled>
+                        В РАЗРАБОТКЕ...
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
     <script src="script.js"></script>
+
 </body>
+
 </html>
